@@ -22,7 +22,7 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('home.twig');
 });
 
-$app->post('/sendemail', function (Request $request) {
+$app->post('/sendemail', function (Request $request) use($app) {	
     $message = $request->get('message');
     mail('phongle2512@gmail.com', '[YourSite] Feedback', $message);
 
