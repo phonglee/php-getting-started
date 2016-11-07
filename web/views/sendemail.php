@@ -15,5 +15,7 @@ $headers[] = "Subject: {$subject}";
 $headers[] = "X-Mailer: PHP/".phpversion();
 
 mail($to, $subject, $message, $headers);
+echo "Thank you for contacting us!";
 
 die;
+?>
