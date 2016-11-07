@@ -1,5 +1,6 @@
 <?php
 
+echo "Begin send email..."
 $mail = mail('phongle2512@gmail.com', 'My Subject', 'Order...');
 if ($mail) {
 	echo "Message sent!"
