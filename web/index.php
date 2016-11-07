@@ -22,27 +22,12 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('home.twig');
 });
 
-$app->get('/sendemail.php', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('sendemail.php');
+$app->post('/sendemail', function (Request $request) {
+    $message = $request->get('message');
+    mail('phongle2512@gmail.com', '[YourSite] Feedback', $message);
+
+    return new Response('Thank you for your feedback!', 201);
 });
 
-$app->post('/sendemail', function() use($app) {
-	echo "Begin send email..."
-
-	$mail = mail('phongle2512@gmail.com', 'My Subject', 'Order...');
-	if ($mail) {
-		echo "Message sent!"
-	} else {
-		echo "Message delivery failed..."
-	}
-	$mail = mail('hai_phong2512@yahoo.com', 'My Subject', 'Order...');
-	if ($mail) {
-		echo "Message sent!"
-	} else {
-		echo "Message delivery failed..."
-	}
-	return $app['twig']->render('home.twig');
-});
 
 $app->run();
