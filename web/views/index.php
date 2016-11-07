@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
 
-<form action="" method="post">
+<form action="/sendemail" method="post">
 First Name: <input type="text" name="first_name"><br>
 Last Name: <input type="text" name="last_name"><br>
 Email: <input type="text" name="email"><br>
