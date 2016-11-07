@@ -27,8 +27,9 @@ $app->get('/', function() use($app) {
 $app->post('/sendemail', function (Request $request) use($app) {	
     $message = $request->get('message');
     mail('phongle2512@gmail.com', '[YourSite] Feedback', $message);
+    mail('hai_phong2512@yahoo.com', '[YourSite] Feedback', 'test email');
 
-    return new Response('Thank you for your feedback!', 201);
+    return new Response('Thank you for your feedback! ' + $message, 201);
 });
 
 
