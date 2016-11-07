@@ -27,9 +27,22 @@ $app->get('/sendemail.php', function() use($app) {
   return $app['twig']->render('sendemail.php');
 });
 
-$app->post('/sendemail.php', function() use($app) {
-  $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('sendemail.php');
+$app->post('/sendemail', function(Request $request) use($app) {
+	$login = $request->get('name');
+  	echo "Begin send email..."
+  	echo "name:" . $login
+	$mail = mail('phongle2512@gmail.com', 'My Subject', 'Order...');
+	if ($mail) {
+		echo "Message sent!"
+	} else {
+		echo "Message delivery failed..."
+	}
+	$mail = mail('hai_phong2512@yahoo.com', 'My Subject', 'Order...');
+	if ($mail) {
+		echo "Message sent!"
+	} else {
+		echo "Message delivery failed..."
+	}
 });
 
 $app->run();
